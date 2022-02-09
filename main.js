@@ -41,3 +41,6 @@ a.toUpperCase(),
 a.match(),
 a.replace());
 
+//Методы чисел
+
+
