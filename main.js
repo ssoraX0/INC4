@@ -46,9 +46,9 @@ a.replace());
 
 // Геттеры Сеттеры, 3 функции рекурсии + презентация по Date
 // Function Declaration ( Объявление функции)
-function name (parametrs) {
+//function name (parametrs) {
     // тело (код) функции
-}
+//}
 
 /*
 Как правило в имени используются префиксыБ обозначающие дейсвтие, после которых следует объект действия
@@ -61,10 +61,71 @@ createSmth- что-то создают
 checkSmth- что-то проверяют 
 */
 
-//Функция вывода сообщения 
+//Функция рекурсия 
+//1. Common recursion 
+let b = 1;
 
-function showMassage() {
-    console.log ('Massege');
+function rec() {
+    b = b + 2;
+    console.log(b);
+    if (b > 99) {
+        return b;
+    }
+    rec();
 }
 
-showMassage();
+rec();
+
+
+//2. Рекурсия, которая позволяет нажатием на кнопку, двигаться объекту самостоятельно с заданной задержкой и длиной пути
+
+let offset = 0;
+
+function move() {
+    offset = offset + 10;
+    document.querySelector('.square').style.left = offset + 'px';
+    if (offset > 500) {
+        return true;
+    }
+    setTimeout(move, 200);
+
+}
+
+
+
+document.querySelector('button').onclick = move;
+
+
+//3. Более сложная рекурсия, программа-попрошайка 
+// генерация целового случайного числа в заданном диапазоне
+function randomInteger(min, max) {
+        let rand = min + Math.random() * (max + 1 - min)
+        return Math.floor(rand)
+}
+
+let sum1 = 0
+
+function wallet () {
+    let money = randomInteger(0, 100)
+    console.log('add: ' + money);
+    sum1 += money;
+    console.log('sum: ' + sum1);
+    if (sum1 >= 300) return;
+    wallet();
+}
+
+wallet();
+
+function count(number){
+    switch (number){
+        case 0:
+            return true
+        case 1:
+            return false
+        default:
+            return count(number - 2)
+    }
+}
+
+console.log(count(68));
+
