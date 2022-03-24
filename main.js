@@ -123,9 +123,75 @@ function count(number){
         case 1:
             return false
         default:
-            return count(number - 2)
+            return count(Math.abs(number) - 2)
     }
 }
 
-console.log(count(68));
+console.log(count(10));
+
+//тема Date Object
+
+const d1 = new Date();
+//Wed Mar 23 2022 23:57:42 GMT+0200 (Восточная Европа, стандартное время)
+console.log(d1);
+
+//ms 
+const d2 = new Date(1648072977);
+console.log(d2);
+
+//время явно
+const d4 = new Date('2021 Sep 6');
+console.log(typeof d4);
+console.log(d4);
+
+
+//  Date to String
+const d5 = new Date('Mon Sep 06 2021 00:00:00 GMT+0300');
+console.log(d5);
+//method 
+document.querySelector('.out-1').innerHTML = d5;
+document.querySelector('.out-2').innerHTML = d5.toUTCString();
+document.querySelector('.out-3').innerHTML = d5.toDateString();
+document.querySelector('.out-4').innerHTML = d5.toISOString();
+
+
+//Standarts
+//2022-03-24 2022-24-03 2022/24/03 AM PM
+
+const d2022 = new Date();
+// methods
+console.log(d2022.getFullYear());
+console.log(d2022.getMonth());  // месяцы с 0 до 11 0- январь 11 декабрь
+console.log(d2022.getDate()); // 1 -31 days , если допустить ошибку, то JS перенесет его на следующий месяц, 0 - понедельник 6 -Воскресенье
+console.log(d2022.getHours()); // 0 to 24
+console.log(d2022.getMinutes()); // 0 to 59
+console.log(d2022.getSeconds()); // 0  to 59
+console.log(d2022.getTime()); //unixTime
+console.log(Date.now()); //unixTime
+
+
+function addLeadingZero(d) {
+    return (d < 10) ? '0' + d : d;
+}
+const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+
+function getUserTime(t = new Date()) {
+    let y = t.getFullYear();
+    let m = addLeadingZero(t.getMonth() + 1);
+    let D = addLeadingZero(t.getDate());
+    let d = days[t.getDay()];
+    let h = addLeadingZero(t.getHours());
+    let mins = addLeadingZero(t.getMinutes());
+
+    console.log(y, m, D, d, h, mins);
+    return `${y}/${m}/${D} ${h}:${mins} (${d})` // ` , а не ' 
+}
+
+console.log(getUserTime());
+
+
+
+
+
+
 
