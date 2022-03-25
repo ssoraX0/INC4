@@ -190,6 +190,33 @@ function getUserTime(t = new Date()) {
 console.log(getUserTime());
 
 
+//Objects, a few pairs 
+//let userInfo = new Object(); //конструктор объекта 
+
+//let userInfo = {};  // литерал объекта, используется чаще всего 
+
+
+let info = {
+    name: "Игорь", // Эффект висячей запятой 
+    age: 21,       // можно менять местами свойства объекта 
+    "studying javascript": true,
+    city: "Kiev",
+};
+
+console.log(info.name);
+
+const adressPerson = {
+    name: "Igor", 
+    adress: {
+        city: "Kiev",
+        district: "Osokorky",
+        street: "Bazhana",
+    }
+}
+
+adressPerson.adress.home = 15;
+console.log(adressPerson.adress);
+
 
 
 
